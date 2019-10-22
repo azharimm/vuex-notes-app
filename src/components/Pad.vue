@@ -15,8 +15,8 @@
 
         <footer class="pad__footer">
             <ul class="pad__footer-items">
-                <li class="pad__footer-item">Words : x</li>
-                <li class="pad__footer-item pad__footer-item--right">Last saved : xx/xx</li>
+                <li class="pad__footer-item">Words : {{wordCount}}</li>
+                <li class="pad__footer-item pad__footer-item--right">Last saved : {{lastSaved}}</li>
             </ul>
         </footer>
     </div>
@@ -27,15 +27,22 @@ import {mapGetters, mapActions} from 'vuex'
 export default {
     computed:{
         ...mapGetters({
-            note:'note'
+            note:'note',
+            lastSaved: 'lastSaved',
+            wordCount: 'wordCount'
         })
     },
     methods:{
         ...mapActions({
-            saveNote: 'saveNote'
+            saveNote: 'saveNote',
+            startSaveTimeout: 'startSaveTimeout'
         }),
         save(){
-            this.saveNote()
+            if(!this.note.id){
+                this.saveNote()
+                return;
+            }
+            this.startSaveTimeout()
         }
     }
 }

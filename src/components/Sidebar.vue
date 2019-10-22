@@ -4,13 +4,18 @@
             <note v-for="note in notes" :key="note.title" :note="note"></note>
         </div>
         <div class="sidebar__content" v-else>
-            Boo, no notes. Get writing!
+            No notes. Create note !
+        </div>
+        <div class="sidebar__content">
+            <a href="#" @click.prevent="newNote">
+                Start a new Note
+            </a>
         </div>
     </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 import Note from './Note'
 export default {
     components:{
@@ -19,6 +24,11 @@ export default {
     computed:{
         ...mapGetters({
             notes:'notes'
+        })
+    },
+    methods:{
+        ...mapActions({
+            newNote: 'newNote'
         })
     }
 }
