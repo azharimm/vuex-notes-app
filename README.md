@@ -1,29 +1,6 @@
-# notes_app_vuex
+# Install
+- clone
+- npm install / yarn install
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Screenshot
+![Home](https://raw.githubusercontent.com/azharimm/Note-App/master/notes-app.gif)
